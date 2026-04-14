@@ -11,8 +11,6 @@ const STATUS_STYLE = {
 
 export default function OrdersPage() {
   const { user, setPage } = useApp();
-
-  /* ── Not logged in ── */
   if (!user) {
     return (
       <div className={styles.gated}>
@@ -39,7 +37,6 @@ export default function OrdersPage() {
           const s = STATUS_STYLE[order.status] || STATUS_STYLE["Preparing"];
           return (
             <div className={styles.card} key={order._id}>
-              {/* Top */}
               <div className={styles.top}>
                 <div>
                   <div className={styles.orderId}>{order._id}</div>
@@ -55,14 +52,14 @@ export default function OrdersPage() {
                 </span>
               </div>
 
-              {/* Items */}
+            
               <div className={styles.items}>
                 {order.items.map((emoji, i) => (
                   <span key={i} className={styles.itemEmoji}>{emoji}</span>
                 ))}
               </div>
 
-              {/* Bottom */}
+              
               <div className={styles.bottom}>
                 <span className={styles.delivery}>
                   <Icons.Truck />

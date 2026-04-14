@@ -23,15 +23,12 @@ export default function CartDrawer() {
     >
       <div className={styles.drawer}>
 
-        {/* ── Header ── */}
         <div className={styles.header}>
           <span className={styles.title}>Your Cart 🛒</span>
           <button className="btn-icon" onClick={() => setCartOpen(false)} aria-label="Close cart">
             <Icons.X />
           </button>
         </div>
-
-        {/* ── Items ── */}
         <div className={styles.body}>
           {cart.length === 0 ? (
             <div className={styles.empty}>
@@ -78,7 +75,6 @@ export default function CartDrawer() {
           )}
         </div>
 
-        {/* ── Footer ── */}
         {cart.length > 0 && (
           <div className={styles.footer}>
             <div className={styles.rows}>

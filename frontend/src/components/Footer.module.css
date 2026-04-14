@@ -15,8 +15,6 @@
   border-bottom: 1px solid var(--border);
 }
 
-.brand {}
-
 .logo {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
@@ -31,7 +29,7 @@
 .tagline { color: var(--muted); font-size: 13px; line-height: 1.6; margin-bottom: 8px; }
 .copy    { color: var(--muted); font-size: 12px; }
 
-/* Link groups */
+
 .linkGroup { display: flex; flex-direction: column; gap: 8px; }
 
 .groupTitle {
@@ -65,7 +63,7 @@
   width: fit-content;
 }
 
-/* Bottom bar */
+
 .bottom {
   max-width: 1200px;
   margin: 20px auto 0;

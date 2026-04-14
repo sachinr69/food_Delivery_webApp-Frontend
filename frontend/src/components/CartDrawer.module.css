@@ -44,7 +44,7 @@
   padding: 8px 24px;
 }
 
-/* ── Empty ── */
+
 .empty {
   display: flex;
   flex-direction: column;
@@ -59,7 +59,7 @@
 }
 .emptyIcon { font-size: 60px; opacity: 0.35; }
 
-/* ── Item ── */
+
 .item {
   display: flex;
   gap: 14px;
@@ -73,7 +73,7 @@
 .itemPrice { color: var(--muted); font-size: 12px; }
 .itemPrice strong { color: var(--orange); }
 
-/* ── Qty controls ── */
+
 .qtyCtrl {
   display: flex;
   align-items: center;
@@ -101,7 +101,7 @@
   text-align: center;
 }
 
-/* ── Footer ── */
+
 .footer {
   padding: 18px 24px 24px;
   border-top: 1px solid var(--border);

@@ -1,4 +1,4 @@
-// All SVG icons used throughout FoodDash
+
 const Icons = {
   Search: () => (
     <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

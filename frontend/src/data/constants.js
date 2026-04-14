@@ -1,12 +1,5 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// 🔧 BACKEND CONFIG
-// Change this URL to your Node/Express backend when ready
-// ─────────────────────────────────────────────────────────────────────────────
 export const API_BASE = "http://localhost:5000/api";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// CATEGORIES
-// ─────────────────────────────────────────────────────────────────────────────
 export const CATEGORIES = [
   { id: "all",     label: "All",      emoji: "🍽️" },
   { id: "pizza",   label: "Pizza",    emoji: "🍕" },
@@ -18,9 +11,7 @@ export const CATEGORIES = [
   { id: "drinks",  label: "Drinks",   emoji: "🥤" },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// MENU ITEMS  (replace with: const res = await fetch(`${API_BASE}/menu`))
-// ─────────────────────────────────────────────────────────────────────────────
+
 export const MENU_ITEMS = [
   {
     _id: "1", name: "Margherita Pizza",
@@ -96,9 +87,7 @@ export const MENU_ITEMS = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SAMPLE ORDERS  (replace with: fetch(`${API_BASE}/orders`, { headers: {Authorization} }))
-// ─────────────────────────────────────────────────────────────────────────────
+
 export const SAMPLE_ORDERS = [
   {
     _id: "ORD-2801", date: "30 Mar 2026",

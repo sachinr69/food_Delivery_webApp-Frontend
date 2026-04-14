@@ -14,7 +14,7 @@
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
 }
 
-/* ── Image area ── */
+
 .imgArea {
   height: 180px;
   background: var(--surface2);
@@ -43,7 +43,7 @@
   z-index: 1;
 }
 
-/* ── Body ── */
+
 .body {
   padding: 16px 18px 20px;
   display: flex;

@@ -11,7 +11,6 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
 
-        {/* Brand */}
         <div className={styles.brand}>
           <div className={styles.logo}>
             🍔 Food<span>Dash</span>
@@ -22,7 +21,6 @@ export default function Footer() {
           <p className={styles.copy}>© 2026 FoodDash. All rights reserved.</p>
         </div>
 
-        {/* Nav Links */}
         <div className={styles.linkGroup}>
           <div className={styles.groupTitle}>Navigate</div>
           {NAV_LINKS.map((p) => (
@@ -32,7 +30,6 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Extra Links */}
         <div className={styles.linkGroup}>
           <div className={styles.groupTitle}>Company</div>
           {EXTRA_LINKS.map((l) => (
@@ -40,7 +37,6 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Tech Stack */}
         <div className={styles.linkGroup}>
           <div className={styles.groupTitle}>Built With</div>
           {["React.js", "Node.js", "MongoDB", "Express"].map((t) => (

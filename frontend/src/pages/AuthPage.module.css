@@ -46,7 +46,7 @@
   margin-bottom: 28px;
 }
 
-/* API error */
+
 .apiError {
   background: rgba(255, 71, 87, 0.1);
   border: 1px solid rgba(255, 71, 87, 0.3);
@@ -57,7 +57,6 @@
   margin-bottom: 16px;
 }
 
-/* Password toggle */
 .pwWrap    { position: relative; }
 .pwToggle  {
   position: absolute;
@@ -77,7 +76,7 @@
 }
 .forgotLink:hover { text-decoration: underline; }
 
-/* Divider */
+
 .divider {
   display: flex; align-items: center; gap: 12px;
   margin: 22px 0;
@@ -89,14 +88,13 @@
   height: 1px; background: var(--border);
 }
 
-/* Social */
+
 .socials {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-/* Switch */
 .switchText {
   text-align: center;
   font-size: 14px;

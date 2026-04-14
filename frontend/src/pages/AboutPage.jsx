@@ -23,14 +23,9 @@ const STATS = [
   ["< 30 min", "Avg. Delivery"],
 ];
 
-const TEAM = [
-  { emoji: "👨‍💻", name: "Arjun Singh",  role: "Frontend Developer" },
-  { emoji: "👩‍💼", name: "Priya Sharma", role: "Product Manager"    },
-  { emoji: "👨‍🍳", name: "Rohit Verma",  role: "Backend Engineer"   },
-  { emoji: "👩‍🎨", name: "Sneha Patel",  role: "UI / UX Designer"   },
-];
+const TEAM = [];
 
-const STACK = ["React.js", "Node.js", "MongoDB", "Express", "JWT", "Razorpay", "Stripe", "Vercel"];
+const STACK = [];
 
 export default function AboutPage() {
   return (
@@ -67,7 +62,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── How it works ── */}
       <section className={styles.section}>
         <span className="badge" style={{ marginBottom: 14 }}>Process</span>
         <h2 className={styles.sectionTitle}>How It Works</h2>
@@ -82,7 +76,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Stats banner ── */}
       <div className={styles.statsWrap}>
         <div className={styles.statsBanner}>
           {STATS.map(([v, l]) => (
@@ -93,8 +86,7 @@ export default function AboutPage() {
           ))}
         </div>
       </div>
-
-      {/* ── Team ── */}
+      
       <section className={styles.section} style={{ textAlign: "center" }}>
         <span className="badge" style={{ marginBottom: 14 }}>Our Team</span>
         <h2 className={styles.sectionTitle}>Meet the Builders</h2>

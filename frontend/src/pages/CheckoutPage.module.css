@@ -25,8 +25,8 @@
   align-items: start;
 }
 
-.left  {}
-.right {}
+/* .left  {}
+.right {} */
 
 .section { padding: 28px; }
 
@@ -38,7 +38,7 @@
   border-bottom: 1px solid var(--border);
 }
 
-/* ── Payment options ── */
+
 .payGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -59,7 +59,7 @@
 .paySelected  { border-color: var(--orange); background: var(--orange-glow); color: var(--orange); }
 .payIcon      { font-size: 20px; }
 
-/* ── Summary card ── */
+
 .summaryCard {
   padding: 28px;
   position: sticky;

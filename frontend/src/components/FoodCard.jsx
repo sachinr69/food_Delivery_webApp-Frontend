@@ -7,7 +7,7 @@ export default function FoodCard({ item, onAdd, delay = 0 }) {
       className={`${styles.card} fade-up`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      {/* ── Image Area ── */}
+    
       <div className={styles.imgArea}>
         {item.badge && (
           <span className={styles.badgeWrap}>
@@ -17,9 +17,9 @@ export default function FoodCard({ item, onAdd, delay = 0 }) {
         <span className={styles.emoji}>{item.emoji}</span>
       </div>
 
-      {/* ── Body ── */}
+  
       <div className={styles.body}>
-        {/* Meta row */}
+       
         <div className={styles.meta}>
           <span className={styles.rating}>
             <Icons.Star /> {item.rating}

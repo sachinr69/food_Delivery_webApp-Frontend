@@ -9,6 +9,8 @@ import OrdersPage     from "./pages/OrdersPage";
 import AboutPage      from "./pages/AboutPage";
 import CheckoutPage   from "./pages/CheckoutPage";
 import AuthPage       from "./pages/AuthPage";
+import AccountPage    from "./pages/AccountPage";
+import MapPage        from "./pages/MapPage";       // ← NEW
 import "./styles/global.css";
 
 function Shell() {
@@ -26,11 +28,12 @@ function Shell() {
         {page === "about"    && <AboutPage />}
         {page === "checkout" && <CheckoutPage />}
         {page === "login"    && <AuthPage />}
+        {page === "account"  && <AccountPage />}
+        {page === "map"      && <MapPage />}        {/* ← NEW */}
       </main>
 
       {!hideShell && <Footer />}
 
-      {/* Global overlays — always rendered */}
       <CartDrawer />
       <ToastContainer />
     </>

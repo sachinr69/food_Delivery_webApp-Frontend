@@ -10,6 +10,20 @@ const PAYMENT_OPTS = [
   { id: "wallet", icon: "👛", label: "FoodDash Wallet"     },
 ];
 
+const Field = ({ k, label, placeholder, type = "text", half = false, form, set, errors }) => (
+  <div className="form-group" style={half ? { marginBottom: 0, flex: 1 } : {}}>
+    <label className="form-label">{label}</label>
+    <input
+      className="input"
+      type={type}
+      placeholder={placeholder}
+      value={form?.[k] || ""}
+      onChange={set(k)}
+    />
+    {errors[k] && <p className="form-error" style={{ color: 'red', fontSize: '12px' }}>{errors[k]}</p>}
+  </div>
+);
+
 export default function CheckoutPage() {
   const { cart, dispatch, cartSubtotal, addToast, setPage, user } = useApp();
 
@@ -22,7 +36,6 @@ export default function CheckoutPage() {
   const gst      = Math.round(cartSubtotal * 0.05);
   const total    = cartSubtotal + delivery + gst;
 
-  /* ── Validation ── */
   const validate = () => {
     const e = {};
     if (!form.name.trim())    e.name    = "Full name is required";
@@ -34,27 +47,16 @@ export default function CheckoutPage() {
     return Object.keys(e).length === 0;
   };
 
-  const set = (key) => (e) => {
+  const handleChange = (key) => (e) => {
     setForm((f) => ({ ...f, [key]: e.target.value }));
-    setErrors((er) => ({ ...er, [key]: "" }));
+    if (errors[key]) setErrors((er) => ({ ...er, [key]: "" }));
   };
 
-  /* ── Place order ── */
   const handleOrder = async () => {
     if (!validate()) return;
     setPlacing(true);
     try {
-      // ── Uncomment when backend is ready ──────────────────────────────────
-      // const token = localStorage.getItem("token");
-      // const res = await fetch(`${API_BASE}/orders`, {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      //   body: JSON.stringify({ items: cart, address: form, payment, total }),
-      // });
-      // if (!res.ok) throw new Error("Order failed");
-      // ─────────────────────────────────────────────────────────────────────
-
-      await new Promise((r) => setTimeout(r, 1800)); // Simulated delay
+      await new Promise((r) => setTimeout(r, 1800)); 
       dispatch({ type: "CLEAR" });
       addToast("Order placed successfully! 🎉", "success");
       setPage("orders");
@@ -65,7 +67,6 @@ export default function CheckoutPage() {
     }
   };
 
-  /* ── Empty cart ── */
   if (cart.length === 0) {
     return (
       <div className={styles.empty}>
@@ -77,21 +78,6 @@ export default function CheckoutPage() {
     );
   }
 
-  /* ── Field helper ── */
-  const Field = ({ k, label, placeholder, type = "text", half = false }) => (
-    <div className="form-group" style={half ? { marginBottom: 0 } : {}}>
-      <label className="form-label">{label}</label>
-      <input
-        className="input"
-        type={type}
-        placeholder={placeholder}
-        value={form[k]}
-        onChange={set(k)}
-      />
-      {errors[k] && <p className="form-error">{errors[k]}</p>}
-    </div>
-  );
-
   return (
     <div className="page">
       <div className={styles.pageHeader}>
@@ -100,28 +86,26 @@ export default function CheckoutPage() {
       </div>
 
       <div className={styles.grid}>
-
-        {/* ── Left column ── */}
+       
         <div className={styles.left}>
-
-          {/* Delivery */}
           <div className={`card ${styles.section}`}>
             <h3 className={styles.sectionTitle}>📍 Delivery Details</h3>
-            <div className="form-row">
-              <Field k="name"  label="Full Name *"     placeholder="Arjun Singh" half />
-              <Field k="phone" label="Phone Number *"  placeholder="+91 98765 43210" type="tel" half />
+            <div className="form-row" style={{ display: 'flex', gap: '15px' }}>
+              <Field k="name" label="Full Name *" placeholder="Arjun Singh" form={form} set={handleChange} errors={errors} half />
+              <Field k="phone" label="Phone Number *" placeholder="+91 98765" type="tel" form={form} set={handleChange} errors={errors} half />
             </div>
-            <Field k="address" label="Street Address *" placeholder="Flat 12B, Sunshine Apts, MG Road..." />
-            <div className="form-row">
-              <Field k="city"    label="City *"    placeholder="Dehradun"  half />
-              <Field k="pincode" label="Pincode *" placeholder="248001" type="number" half />
+            
+            <Field k="address" label="Street Address *" placeholder="Flat 12B..." form={form} set={handleChange} errors={errors} />
+            
+            <div className="form-row" style={{ display: 'flex', gap: '15px', marginTop: '15px' }}>
+              <Field k="city" label="City *" placeholder="Dehradun" form={form} set={handleChange} errors={errors} half />
+              <Field k="pincode" label="Pincode *" placeholder="248001" type="number" form={form} set={handleChange} errors={errors} half />
             </div>
           </div>
 
-          {/* Payment */}
+         
           <div className={`card ${styles.section}`} style={{ marginTop: 20 }}>
             <h3 className={styles.sectionTitle}>💳 Payment Method</h3>
-
             <div className={styles.payGrid}>
               {PAYMENT_OPTS.map((p) => (
                 <div
@@ -134,40 +118,12 @@ export default function CheckoutPage() {
                 </div>
               ))}
             </div>
-
-            {payment === "card" && (
-              <div style={{ marginTop: 4 }}>
-                <div className="form-group">
-                  <label className="form-label">Card Number</label>
-                  <input className="input" placeholder="4242 4242 4242 4242" maxLength={19} />
-                </div>
-                <div className="form-row">
-                  <div className="form-group" style={{ marginBottom: 0 }}>
-                    <label className="form-label">Expiry</label>
-                    <input className="input" placeholder="MM / YY" maxLength={7} />
-                  </div>
-                  <div className="form-group" style={{ marginBottom: 0 }}>
-                    <label className="form-label">CVV</label>
-                    <input className="input" placeholder="•••" type="password" maxLength={4} />
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {payment === "upi" && (
-              <div className="form-group" style={{ marginTop: 14 }}>
-                <label className="form-label">UPI ID</label>
-                <input className="input" placeholder="yourname@upi" />
-              </div>
-            )}
           </div>
         </div>
 
-        {/* ── Right column: summary ── */}
         <div className={styles.right}>
           <div className={`card ${styles.summaryCard}`}>
             <h3 className={styles.sectionTitle}>🧾 Order Summary</h3>
-
             <div className={styles.summaryItems}>
               {cart.map((item) => (
                 <div className={styles.summaryItem} key={item._id}>
@@ -199,11 +155,8 @@ export default function CheckoutPage() {
             >
               {placing ? "Placing Order..." : `Place Order · ₹${total}`}
             </button>
-
-            <p className={styles.secure}>🔒 Secured by Razorpay / Stripe</p>
           </div>
         </div>
-
       </div>
     </div>
   );

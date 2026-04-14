@@ -22,13 +22,10 @@ export default function HomePage() {
 
   return (
     <div className="page">
-
-      {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
       <section className={styles.hero}>
         <div className={styles.heroGlow} />
 
         <div className={styles.heroInner}>
-          {/* Left */}
           <div>
             <div className="fade-up" style={{ marginBottom: 20 }}>
               <span className="badge">🚀 Free delivery on first order</span>
@@ -66,7 +63,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right – decorative */}
           <div className={styles.heroRight}>
             <div className={styles.plate}>
               🍔
@@ -86,7 +82,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══ SEARCH ════════════════════════════════════════════════════════════ */}
       <div className={styles.searchBar} id="menu-section">
         <div className={styles.searchWrap}>
           <span className={styles.searchIcon}><Icons.Search /></span>
@@ -109,10 +104,8 @@ export default function HomePage() {
         </select>
       </div>
 
-      {/* ══ CATEGORY TABS ═════════════════════════════════════════════════════ */}
       <CategoryTabs active={cat} onChange={setCat} />
 
-      {/* ══ MENU GRID ═════════════════════════════════════════════════════════ */}
       <section className={styles.menuSection}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>
