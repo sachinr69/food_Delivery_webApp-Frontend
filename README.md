@@ -4,7 +4,7 @@ FoodDash is a modern, high-performance food delivery platform designed to connec
 
 Key Features User Authentication: Secure Sign-up and Login using JWT (JSON Web Tokens) or Firebase.
 
-Dynamic Menu: Browse restaurants by category, rating, or price range.
+Dynamic Menu: Browse restaurants by category & rating.
 
 Live Search: Fast search functionality for specific dishes or restaurant names.
 
